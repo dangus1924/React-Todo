@@ -6,19 +6,34 @@ class TodoForm extends React.Component{
         super()
     }
 }
+handleChange = (event) => {
+    this.setState({
+      value: event.target.value
+    })
+  }
 
+  handleSubmit = (event) => {
+    event.preventDefault()
 
-render() {
-    return(
-        <form>
-            <input
-                type="text"
-                value={this.StaticRange.value}
-                onChange={this.handleChange}>
-            />
-            <button>Add Todo</button>
-        </form>
-    )
+    this.props.addItem(event, this.state.value)
+
+    this.setState({
+      value: ""
+    })
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <input
+          type="text"
+          value={this.state.value}
+          onChange={this.handleChange}
+        />
+        <button>Add Todo</button>
+      </form>
+    );
+  }
 }
 
 export default TodoForm;
