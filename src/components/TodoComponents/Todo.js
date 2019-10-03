@@ -1,14 +1,13 @@
-import React from "react";
+import React, { Component } from 'react'
 
-const Todo = props => {
-  return (
-    <div
-      onClick={props.onClick}
-      className={`item${props.item.purchased ? " purchased" : ""}`}
-    >
-      <p>{props.item.name}</p>
-    </div>
-  );
-};
-
-export default Todo;
+export default class Todo extends Component {
+    render(props) {
+        return (
+            <div 
+            onClick={this.props.onClick}
+            className={`item${this.props.item.completed ? " completed" : ""}`}>
+                {this.props.item.task}
+            </div>
+        )
+    }
+}

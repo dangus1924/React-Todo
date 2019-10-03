@@ -1,12 +1,14 @@
 import React from 'react';
-import { Form } from 'semantic-ui-react';
 
-class TodoForm extends React.Component{
-    constructor() {
-        super()
+class TodoForm extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      value: ""
     }
-}
-handleChange = (event) => {
+  }
+
+  handleChange = (event) => {
     this.setState({
       value: event.target.value
     })
@@ -24,6 +26,7 @@ handleChange = (event) => {
 
   render() {
     return (
+        
       <form onSubmit={this.handleSubmit}>
         <input
           type="text"
@@ -32,6 +35,7 @@ handleChange = (event) => {
         />
         <button>Add Todo</button>
       </form>
+     
     );
   }
 }
